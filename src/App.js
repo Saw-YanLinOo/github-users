@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import './app.css';
+import './App.css';
 
 const url = "https://api.github.com/users";
 const searchUrl = "https://api.github.com/search/users?q=";
