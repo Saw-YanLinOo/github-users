@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import './App.css';
 
 const url = "https://api.github.com/users";
+
 const searchUrl = "https://api.github.com/search/users?q=";
 
 function App(){
@@ -25,7 +26,7 @@ function App(){
     }
 
     async function searchusers(userName){
-        var response = await fetch(searchUrl+userName);
+        var response = await fetch(searchUrl+"$userName"+"&per_page=5&page=1");
         var users = await response.json();
 
         if(response.status > 300){
