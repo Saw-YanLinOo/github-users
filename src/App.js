@@ -3,7 +3,7 @@ import './App.css';
 
 const url = "https://api.github.com/users";
 
-const searchUrl = "https://api.github.com/search/users?q=";
+const searchUrl= (name) => "https://api.github.com/search/users?q="+"\""+name+"\""+"&per_page=20&page=1";
 
 function App(){
     const [inputValue,setInputValue] = useState("");
@@ -26,7 +26,8 @@ function App(){
     }
 
     async function searchusers(userName){
-        var response = await fetch(searchUrl+"$userName"+"&per_page=5&page=1");
+        console.log(searchUrl(userName));
+        var response = await fetch(searchUrl(userName));
         var users = await response.json();
 
         if(response.status > 300){
